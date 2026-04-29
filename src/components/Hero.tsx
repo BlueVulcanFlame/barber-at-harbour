@@ -1,9 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import { Phone, Star } from "lucide-react";
-
-import { ShimmerButton } from "@/components/magicui/shimmer-button";
 
 const PHONE_DISPLAY = "0432 526 301";
 const PHONE_HREF = "tel:0432526301";
@@ -66,21 +62,13 @@ export default function Hero() {
 
         {/* CTAs */}
         <div className="mt-9 flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
-          <ShimmerButton
-            type="button"
-            onClick={() => {
-              window.location.href = PHONE_HREF;
-            }}
-            aria-label={`Call Sam at ${PHONE_DISPLAY}`}
-            background="#a8302e"
-            shimmerColor="#f5f0e8"
-            shimmerSize="3px"
-            shimmerDuration="2.5s"
-            className="gap-2 px-6 py-3.5 text-sm font-semibold text-cream shadow-[0_8px_28px_-10px_rgba(168,48,46,0.65)] sm:text-base"
+          <a
+            href={PHONE_HREF}
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-barber-red px-6 py-3.5 text-sm font-semibold text-cream shadow-[0_8px_28px_-10px_rgba(168,48,46,0.65)] transition-colors hover:bg-barber-red-soft sm:text-base"
           >
             <Phone className="h-4 w-4" strokeWidth={2.5} />
             Call Sam — {PHONE_DISPLAY}
-          </ShimmerButton>
+          </a>
           <a
             href="#services"
             className="inline-flex items-center justify-center rounded-full border border-cream/30 px-6 py-3.5 text-sm font-medium text-cream transition-colors hover:border-cream/60 hover:bg-cream/5 sm:text-base"

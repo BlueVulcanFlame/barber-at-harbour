@@ -102,7 +102,7 @@ export default function Nav() {
               className="inline-flex items-center gap-1.5 rounded-full bg-barber-red px-3.5 py-1.5 text-xs font-semibold text-cream transition-colors hover:bg-barber-red-soft sm:px-4 sm:py-2 sm:text-sm"
             >
               <Phone className="h-3.5 w-3.5" strokeWidth={2.5} />
-              Call Sam
+              Call<span className="hidden md:inline"> Sam</span>
             </a>
           </div>
         </div>
