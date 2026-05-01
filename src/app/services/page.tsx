@@ -1,4 +1,4 @@
-// PAGE CONTAINS PLACEHOLDER PRICES - Search for "PLACEHOLDER PRICE" comments to find prices that need Sam's confirmation before launch.
+// FINAL PRICES - confirmed by Sam Apr 29 2026
 
 import { Coffee, ExternalLink, Footprints, Phone } from "lucide-react";
 
@@ -10,40 +10,21 @@ const PHONE_HREF = "tel:0432526301";
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=Barber+%40+the+harbour+Werribee+South";
 
-const SERVICES = [
-  {
-    name: "Haircut",
-    subName: null,
-    // PLACEHOLDER PRICE - confirm with Sam
-    price: "$35",
-    priceNote: "Walk-in or call ahead",
-    description:
-      "A proper men's cut. Whether you want a skin fade, scissor cut, classic short back and sides, or something specific you've seen — Sam handles it. The cut typically takes 30–40 minutes including the wash.",
-    details:
-      "Includes: neck shave, finish style. Optional: hot towel, beard trim add-on.",
-  },
-  {
-    name: "Beard Trim",
-    subName: null,
-    // PLACEHOLDER PRICE - confirm with Sam
-    price: "$25",
-    priceNote: "Add-on with a haircut, or standalone",
-    description:
-      "Shape-up, line-up, or full beard sculpt. Whether you're cleaning up between haircuts or maintaining a fuller beard, Sam shapes it to suit your face — not a one-size-fits-all template.",
-    details:
-      "Includes: shape-up, line work. Standalone or as a haircut add-on.",
-  },
-  {
-    name: "Kids Haircut",
-    subName: "(under 12)",
-    // PLACEHOLDER PRICE - confirm with Sam
-    price: "$25",
-    priceNote: "Bring them anytime — patience included",
-    description:
-      "Sam's good with the squirmy ones. Whether your kid sits perfectly still or needs ten breaks, the cut still lands. Multi-generational customers — fathers bringing sons, regulars bringing their grandkids.",
-    details:
-      "Includes: full cut, finish style. Wyndham Harbour mini golf is a 5-minute walk if there's time to kill afterwards.",
-  },
+const HAIRCUTS = [
+  { name: "Haircut", price: "$30" },
+  { name: "Pension", price: "$25" },
+  { name: "Kids (under 7)", price: "$25" },
+  { name: "Scissors haircut", price: "$35" },
+  { name: "Zero fade", price: "$40" },
+  { name: "Skin fade", price: "$45" },
+  { name: "Kids skin fade", price: "$40" },
+];
+
+const BEARD_WORK = [
+  { name: "Beard trim", price: "$25" },
+  { name: "Beard fade", price: "$25" },
+  { name: "Foil shave", price: "$25" },
+  { name: "Beard foil shave", price: "$25" },
 ];
 
 const STEPS = [
@@ -93,15 +74,8 @@ function PageHero() {
           What Sam does. What it costs.
         </h1>
         <p className="mx-auto mt-6 max-w-[620px] text-base leading-relaxed text-cream/85 sm:text-lg">
-          Three core services. Honest prices. No upsells, no surprises at the
-          till.
+          Honest prices. No upsells, no surprises at the till.
         </p>
-
-        {/* Sample-copy banner — remove before deploying live */}
-        <div className="mt-8 inline-flex items-start gap-2 rounded-sm border border-muted-gold/30 bg-muted-gold/10 px-3 py-2 text-xs text-cream/75">
-          <span aria-hidden>💰</span>
-          <span>Placeholder pricing — Sam will confirm before launch.</span>
-        </div>
       </div>
     </section>
   );
@@ -112,43 +86,52 @@ function PageHero() {
 function ServiceMenu() {
   return (
     <section className="relative w-full px-6 py-16 sm:px-8 md:py-20">
-      <div className="mx-auto w-full max-w-6xl">
-        <ul className="divide-y divide-muted-gold/20">
-          {SERVICES.map((service) => (
-            <li
-              key={service.name}
-              className="grid gap-6 py-10 md:grid-cols-5 md:gap-12 md:py-14"
-            >
-              {/* Left column — name + price (40%) */}
-              <div className="md:col-span-2">
-                <h2 className="font-serif font-normal leading-[1.05] tracking-tight text-cream text-[clamp(1.75rem,4vw,2.5rem)]">
-                  {service.name}
-                  {service.subName && (
-                    <span className="ml-2 align-middle text-base font-normal text-cream/55 sm:text-lg">
-                      {service.subName}
-                    </span>
-                  )}
-                </h2>
-                <p className="mt-4 text-4xl font-bold text-barber-red">
-                  {service.price}
-                </p>
-                <p className="mt-2 text-sm italic text-cream/65">
-                  {service.priceNote}
-                </p>
-              </div>
+      <div className="mx-auto w-full max-w-4xl">
+        <div className="grid gap-12 md:grid-cols-2 md:gap-16">
+          {/* Haircuts */}
+          <div>
+            <h2 className="font-serif font-normal leading-[1.05] tracking-tight text-cream text-[clamp(1.75rem,3.5vw,2.25rem)]">
+              Haircuts
+            </h2>
+            <ul className="mt-6 divide-y divide-cream/10">
+              {HAIRCUTS.map(({ name, price }) => (
+                <li
+                  key={name}
+                  className="flex items-baseline justify-between gap-4 py-4"
+                >
+                  <span className="font-serif text-[1.1rem] text-cream">
+                    {name}
+                  </span>
+                  <span className="font-serif text-[1.1rem] font-bold text-barber-red">
+                    {price}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              {/* Right column — description + details (60%) */}
-              <div className="space-y-4 md:col-span-3">
-                <p className="text-base leading-relaxed text-cream/85 sm:text-lg">
-                  {service.description}
-                </p>
-                <p className="text-sm leading-relaxed text-cream/60">
-                  {service.details}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+          {/* Beard Work */}
+          <div>
+            <h2 className="font-serif font-normal leading-[1.05] tracking-tight text-cream text-[clamp(1.75rem,3.5vw,2.25rem)]">
+              Beard Work
+            </h2>
+            <ul className="mt-6 divide-y divide-cream/10">
+              {BEARD_WORK.map(({ name, price }) => (
+                <li
+                  key={name}
+                  className="flex items-baseline justify-between gap-4 py-4"
+                >
+                  <span className="font-serif text-[1.1rem] text-cream">
+                    {name}
+                  </span>
+                  <span className="font-serif text-[1.1rem] font-bold text-barber-red">
+                    {price}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );

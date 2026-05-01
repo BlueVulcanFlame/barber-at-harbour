@@ -1,31 +1,25 @@
-/*
- * PLACEHOLDER PRICES - These need to be confirmed with Sam before the site goes live.
- * Search for "PLACEHOLDER PRICE" comments throughout this file to find all instances.
- */
+// FINAL PRICES - confirmed by Sam Apr 29 2026
 
 import { MagicCard } from "@/components/magicui/magic-card";
 
 const SERVICES = [
   {
     name: "Haircut",
-    // PLACEHOLDER PRICE - CONFIRM WITH SAM
-    price: "from $35",
+    price: "$30",
     description:
       "A proper men's cut. Skin fade, scissor cut, classic short back and sides — whatever you walk in for, walk out sharp.",
   },
   {
-    name: "Beard Trim",
-    // PLACEHOLDER PRICE - CONFIRM WITH SAM
-    price: "from $25",
+    name: "Skin Fade",
+    price: "$45",
     description:
-      "Shape-ups, line-ups, full beard sculpts. Hot towel finish if you want one. Coffee while you wait.",
+      "Tight, clean fade down to the skin. Sharp lines, modern finish.",
   },
   {
-    name: "Kids Haircut",
-    // PLACEHOLDER PRICE - CONFIRM WITH SAM
-    price: "from $25",
+    name: "Beard Trim",
+    price: "$25",
     description:
-      "Patient with the squirmy ones. Bring them in any day — Wyndham Harbour's mini golf is a five-minute walk if there's time to kill afterwards.",
+      "Shape-ups, line-ups, full beard sculpts. Hot towel finish if you want one. Coffee while you wait.",
   },
 ];
 
@@ -84,14 +78,17 @@ export default function Services() {
           ))}
         </div>
 
-        {/* Inline CTA link */}
-        <div className="mt-12 flex justify-center">
+        {/* CTA — descriptive line + ghost button */}
+        <div className="mt-12 flex flex-col items-center gap-5 text-center">
+          <p className="text-base text-cream/85 sm:text-lg">
+            Plus pension cuts, kids&apos; cuts, beard fades, scissor cuts, and
+            more.
+          </p>
           <a
             href="/services"
-            className="inline-flex items-center gap-1.5 border-b border-cream/30 pb-0.5 text-sm font-medium text-cream transition-colors hover:border-barber-red hover:text-barber-red"
+            className="inline-flex items-center justify-center rounded-full border border-cream/30 px-6 py-3.5 text-sm font-medium text-cream transition-colors hover:border-cream/60 hover:bg-cream/5 sm:text-base"
           >
-            See full price list
-            <span aria-hidden>→</span>
+            See all services &amp; prices
           </a>
         </div>
       </div>
